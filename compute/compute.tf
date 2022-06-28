@@ -8,7 +8,7 @@ resource "aws_instance" "dev_node" {
   ami                    = data.aws_ami.server_ami.id
   key_name               = aws_key_pair.mtc_auth.id
   vpc_security_group_ids = var.security_group_id
-  subnet_id              = var._subnet_id
+  subnet_id              = var.subnet_id
   user_data              = file("${path.module}/userdata.tpl")
 
   root_block_device {
