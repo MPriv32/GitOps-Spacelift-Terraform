@@ -3,5 +3,5 @@ output "connection_script" {
 }
 
 output "mitch-connection-script" {
-    value = "module.mitch-dev.connection_script"
+    value = module.mitch-dev.connection_script
 }
