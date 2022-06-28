@@ -20,6 +20,6 @@ module "mitch-dev" {
   host_os           = "windows"
   node_name = "mitch"
   key_name = "mitch-key"
-  instance_type = "t2.micro"
+  instance_type = "t2.large"
   
 }
