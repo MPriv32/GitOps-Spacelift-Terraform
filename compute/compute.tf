@@ -1,10 +1,10 @@
 resource "aws_key_pair" "mtc_auth" {
-  key_name   = "mtckey"
+  key_name   = var.key_name
   public_key = file("/mnt/workspace/mtckey.pub")
 }
 
 resource "aws_instance" "dev_node" {
-  instance_type          = "t2.micro"
+  instance_type          = var.instance_type
   ami                    = data.aws_ami.server_ami.id
   key_name               = aws_key_pair.mtc_auth.id
   vpc_security_group_ids = var.security_group_id
@@ -16,7 +16,7 @@ resource "aws_instance" "dev_node" {
   }
 
   tags = {
-    Name = "dev_node"
+    Name = "${var.node_name}-dev-node"
   }
 
   # provisioner "local-exec" {
